@@ -18,7 +18,7 @@ puts "#{User.count} users created! #{User.first.username} and #{User.last.userna
 
 Friendship.create!(user: User.first, friend_user: User.last)
 
-puts "#{Friendship.count} friendships created! #{Friendship.first.user.username} and #{Friendship.first.friend.username}"
+puts "#{Friendship.count} friendships created! #{Friendship.first.user.username} and #{Friendship.first.friend_user.username}"
 
 Board.create!(name: "Badgammon", user: User.first, friend_user_id: User.last.id, game: "Backgammon")
 
