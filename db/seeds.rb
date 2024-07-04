@@ -1,9 +1,32 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+puts "Let's find out who the baddest loser is!"
+
+puts "Clearing the DB..."
+
+Point.destroy_all
+Board.destroy_all
+Friendship.destroy_all
+User.destroy_all
+
+if Point.count == 0 && Board.count == 0 && Friendship.count == 0 && User.count == 0
+  puts "DB is clear!"
+end
+
+User.create!(email: "meg@cat.com", password: "123456", username: "Mr Kitty")
+User.create!(email: "ki@kitty.com", password: "secret", username: "Madame Cat")
+
+puts "#{User.count} users created! #{User.first.username} and #{User.last.username}"
+
+Friendship.create!(user: User.first, friend: User.last)
+
+puts "#{Friendship.count} friendships created! #{Friendship.first.user.username} and #{Friendship.first.friend.username}"
+
+Board.create!(name: "Badgammon", user: User.first, friend_user_id: User.last.id, game: "Backgammon")
+
+puts "#{Board.count} boards created! #{Board.first.name} by #{Board.first.user.username} with #{Board.first.friend_user.username}"
+
+Point.create!(board: Board.first, user: User.first, value: 3)
+Point.create!(board: Board.first, user: User.last, value: 1)
+
+puts "#{Point.count} points created so #{Point.first.user.username} wins #{Point.first.board.name}"
+
+puts "And thats it! DB is seeded!"
