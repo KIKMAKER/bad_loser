@@ -16,7 +16,7 @@ User.create!(email: "ki@kitty.com", password: "secret", username: "Madame Cat")
 
 puts "#{User.count} users created! #{User.first.username} and #{User.last.username}"
 
-Friendship.create!(user: User.first, friend: User.last)
+Friendship.create!(user: User.first, friend_user: User.last)
 
 puts "#{Friendship.count} friendships created! #{Friendship.first.user.username} and #{Friendship.first.friend.username}"
 
