@@ -1,2 +1,10 @@
-<h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
+<div>
+  <%= cl_image_tag @board.friendship.user.profile_picture.key, height: 100, width: 100, crop: :fill %>
+  <%= @board.user_total %>
+</div>
+<h1><%= @board.name  %></h1>
+<h6><%= @board.game %></h6>
+<div>
+  <%= cl_image_tag @board.friendship.friend_user.profile_picture.key, height: 100, width: 100, crop: :fill %>
+  <%= @board.friend_user_total %>
+</div>

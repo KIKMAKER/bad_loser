@@ -1,10 +1,10 @@
 class FriendshipsController < ApplicationController
   def index
-    @friends = current_user.friends
+    @friendships = current_user.all_friendships
   end
 
   def show
-    @friend = User.find(params[:id])
-    @boards = Board.all.where(user: current_user)
+    @friendship = Friendship.find(params[:id])
+    @boards = @friendship.boards
   end
 end
