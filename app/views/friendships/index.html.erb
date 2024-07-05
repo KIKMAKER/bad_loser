@@ -1,2 +1,8 @@
-<h1>Friendships#index</h1>
-<p>Find me in app/views/friendships/index.html.erb</p>
+<h1>Friendships</h1>
+<ul>
+  <% @friendships.each do |friendship| %>
+    <%= link_to friendship_path(friendship) do %>
+      <li><%= friendship.user.username %> vs <%= friendship.friend_user.username %></li>
+    <% end %>
+  <% end %>
+</ul>

@@ -11,5 +11,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+          :recoverable, :rememberable, :validatable
+
+  def all_friendships
+    Friendship.where('user_id = :id OR friend_user_id = :id', id: self.id)
+  end
 end
