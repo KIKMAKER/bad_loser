@@ -1,10 +1,12 @@
 class User < ApplicationRecord
 
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships, source: :friend_user
 
-  has_many :boards
-  has_many :points
+  has_many :boards, dependent: :destroy
+  has_many :points, dependent: :destroy
+
+  has_one_attached :profile_picture
 
   validates :username, presence: true, uniqueness: true
 
