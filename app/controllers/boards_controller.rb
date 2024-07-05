@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
-      redirect_to @board, notice: 'Board was successfully created.'
+      redirect_to board_path(@board), notice: 'Board was successfully created.'
     else
       @friendships = current_user.friendships
       render :new, status: :unprocessable_entity
