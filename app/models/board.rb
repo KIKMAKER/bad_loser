@@ -1,6 +1,9 @@
 class Board < ApplicationRecord
-  belongs_to :user
-  belongs_to :friend_user, class_name: 'User'
+  belongs_to :friendship
   has_many :points, dependent: :destroy
+
+  validates :name, presence: true
+  validates :game, presence: true
+  
   has_one_attached :picture
 end
