@@ -1,10 +1,12 @@
 <div>
   <%= cl_image_tag @board.friendship.user.profile_picture.key, height: 100, width: 100, crop: :fill %>
   <%= @board.user_total %>
+  <%= button_to "+ 1", points_path, params: {user: @board.friendship.user, board: @board} %>
 </div>
 <h1><%= @board.name  %></h1>
 <h6><%= @board.game %></h6>
 <div>
   <%= cl_image_tag @board.friendship.friend_user.profile_picture.key, height: 100, width: 100, crop: :fill %>
   <%= @board.friend_user_total %>
+  <%= button_to "+ 1", points_path, params: {user: @board.friendship.friend_user, board: @board} %>
 </div>
