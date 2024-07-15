@@ -3,7 +3,8 @@
   <ul>
     <% @friendships.each do |friendship| %>
       <%= link_to friendship_path(friendship) do %>
-        <li><%= friendship.user.username %> vs <%= friendship.friend_user.username %></li>
+        <li><%= friendship.user.username %> </li>
+        <!--friend_user is me...?-->
       <% end %>
     <% end %>
   </ul>
