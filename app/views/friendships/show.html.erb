@@ -1,11 +1,13 @@
-<h1><%= @friendship.user.username %> vs <%= @friendship.friend_user.username %></h1>
-<ul>
-  <% @boards.each do |board| %>
-    <%= link_to board_path(board) do %>
-      <li><%= board.name %></li>
+<div class="bad-container">
+  <h1><%= @friendship.user.username %> vs <%= @friendship.friend_user.username %></h1>
+  <ul>
+    <% @boards.each do |board| %>
+      <%= link_to board_path(board) do %>
+        <li><%= board.name %></li>
+      <% end %>
     <% end %>
+  </ul>
+  <%= link_to new_board_path() do %>
+    <button>New Board</button>
   <% end %>
-</ul>
-<%= link_to new_board_path() do %>
-  <button>New Board</button>
-<% end %>
+</div>
