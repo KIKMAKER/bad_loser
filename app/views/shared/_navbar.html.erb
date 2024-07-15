@@ -12,13 +12,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "my friendships", friendships_path(), class: "nav-link" %>
+            <%= link_to "friends", friendships_path(), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "new board", new_board_path(), class: "nav-link" %>
+            <%= link_to "+ board", new_board_path(), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "add a friend", everyone_path(), class: "nav-link" %>
+            <%= link_to "+ friend", everyone_path(), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
