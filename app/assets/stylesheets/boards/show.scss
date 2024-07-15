@@ -1,0 +1,85 @@
+.user-img-points {
+  position: relative;
+  width: fit-content;
+  .text-board-points {
+    position: absolute;
+    top: 25%;
+    left: 38%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.board-user, .board-friend-user {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+  position: relative;
+}
+
+.board-user {
+  background-color: $neon-green;
+
+}
+
+.board-friend-user {
+  background-color: $bright-pink;
+}
+
+.container-board {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  position: relative;
+
+}
+.text-board-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 8px 8px 0px 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.text-board-game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 8px 0px 8px;
+  font-size: 0.6rem;
+}
+
+.img-board-skull {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  bottom: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+}
+
+.text-board-username {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  padding-right: 8px;
+
+
+  .text-vs {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+}
