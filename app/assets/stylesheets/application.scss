@@ -11,3 +11,9 @@
 @import "components/index";
 @import "pages/index";
 @import "boards/show";
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 5vh 0;
+  }
+}
