@@ -1,13 +1,10 @@
 <div class="bad-container">
-  <h1><%= @friendship.user.username %> vs <%= @friendship.friend_user.username %></h1>
-  <ul>
+  <h1>Me vs <%= @friendship.user.username %> </h1>
     <% @boards.each do |board| %>
       <%= link_to board_path(board) do %>
-        <li><%= board.name %></li>
+        <p><%= board.name %></p>
       <% end %>
     <% end %>
-  </ul>
-  <%= link_to new_board_path() do %>
-    <button>New Board</button>
-  <% end %>
+    <br>
+  <%= link_to "New Board", new_board_path, class: "sign-up-btn" %>
 </div>

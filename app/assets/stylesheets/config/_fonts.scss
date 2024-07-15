@@ -76,3 +76,19 @@ h6 {
   font-family: $header-font-family;
   line-height: 1.3;
 }
+
+a {
+  color: $neon-green;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: darken($bright-pink, 10%);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: darken($neon-green, 20%);
+  }
+}
