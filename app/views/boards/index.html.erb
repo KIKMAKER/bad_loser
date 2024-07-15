@@ -1,0 +1,10 @@
+<div class="bad-container">
+  <h1>Boards</h1>
+    <% @boards.each do |board| %>
+      <%= link_to board_path(board) do %>
+        <p><%= board.name %></p>
+      <% end %>
+    <% end %>
+    <br>
+  <%= link_to "New Board", new_board_path, class: "sign-up-btn" %>
+</div>

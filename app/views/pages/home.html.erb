@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="bad-container">
+  <div class="home-container">
+    <h1>Do you give too many fucks about winning?</h1>
+    <p></p>
+    <p>You've come to the right place.</p>
+    <p>Keep track of your wins and loses and see which friendships survive the competition.</p>
+    <h3>Add friends</h3>
+    <p>And find out...</p>
+    <h1>Are you a bad loser?</h1>
+    <% if current_user %>
+      <%= link_to new_board_path do %>
+        <%= link_to "Begin", new_board_path, class: "btn sign-up-btn" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Begin", new_user_registration_path, class: "btn sign-up-btn" %>
+    <% end %>
+  </div>
+</div>

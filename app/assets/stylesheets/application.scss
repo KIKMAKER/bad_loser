@@ -1,6 +1,6 @@
 // Graphical variables
-@import "config/fonts";
 @import "config/colors";
+@import "config/fonts";
 @import "config/bootstrap_variables";
 
 // External libraries
@@ -11,3 +11,20 @@
 @import "components/index";
 @import "pages/index";
 @import "boards/show";
+
+body {
+  background-color: $gray;
+  color: $light-gray;
+}
+
+.bad-container {
+  margin: 5vh 4vw;
+  text-align: center;
+
+}
+
+@media screen and (min-width: 768px) {
+  .bad-container {
+    margin: 5vh 10vh;
+  }
+}

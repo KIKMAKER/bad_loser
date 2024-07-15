@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
   end
 
   def index
+    @boards = Board.joins(:friendship).where(friendships: { user_id: current_user.id }).or(Board.joins(:friendship).where(friendships: { friend_user_id: current_user.id }))
   end
 
   def create

@@ -1,10 +1,9 @@
-<h1>Friendships</h1>
-<ul>
-  <% @friendships.each do |friendship| %>
-    <%= link_to friendship_path(friendship) do %>
-      <li><%= friendship.user.username %> vs <%= friendship.friend_user.username %></li>
+<div class="bad-container">
+  <h1>Friends</h1>
+    <% @friendships.each do |friendship| %>
+      <%= link_to friendship_path(friendship) do %>
+        <p><%= friendship.user.username %> </p>
+        <!--friend_user is me...?-->
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-
-
+</div>
