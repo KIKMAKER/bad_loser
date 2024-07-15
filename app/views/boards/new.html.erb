@@ -1,10 +1,9 @@
 <div class="bad-container">
-
-<h1>New Board</h1>
-<%= simple_form_for @board do |f| %>
-  <%= f.input :name %>
-  <%= f.input :game %>
-  <%= f.input :friendship_id, collection: @friendships, label_method: lambda { |friendship| friendship.user == current_user ? friendship.friend_user.username : friendship.user.username} %>
-  <%= f.button :submit %>
-<% end %>
+  <h1>New Board</h1>
+  <%= simple_form_for @board do |f| %>
+    <%= f.input :name %>
+    <%= f.input :game %>
+    <%= f.input :friendship_id, collection: @friendships, label_method: lambda { |friendship| friendship.user == current_user ? friendship.friend_user.username : friendship.user.username} %>
+    <%= f.button :submit %>
+  <% end %>
 </div>

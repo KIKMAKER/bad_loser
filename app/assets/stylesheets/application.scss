@@ -12,8 +12,13 @@
 @import "pages/index";
 @import "boards/show";
 
+body {
+  background-color: $gray;
+  color: $light-gray;
+}
+
 @media screen and (min-width: 768px) {
-  body {
-    margin: 5vh 0;
+  .bad-container {
+    margin: 0 5vh;
   }
 }
