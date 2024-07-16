@@ -3,17 +3,18 @@
   background-position: center;
   height: 120px;
   width: 120px;
-
+  border-radius: 50%;
 
 
 
   .text-board-points {
-
-
     font-size: 3.5rem;
     font-weight: bold;
     color: white;
-    text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+
   }
 }
 
