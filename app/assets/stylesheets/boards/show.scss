@@ -1,13 +1,20 @@
 .user-img-points {
-  position: relative;
-  width: fit-content;
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+
+
+
   .text-board-points {
-    position: absolute;
-    top: 25%;
-    left: 38%;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+
   }
 }
 

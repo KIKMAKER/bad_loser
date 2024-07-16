@@ -1,8 +1,7 @@
-<div class="bad-contianer">
+<div class="bad-container">
   <div class="container-board">
     <div class="board-user">
-      <div class="user-img-points">
-        <%= cl_image_tag @board.friendship.user.profile_picture.key, height: 120, width: 120, crop: :fill, class: "img-board-user" %>
+      <div class="user-img-points" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @board.friendship.user.profile_picture.key, crop: :fill%>')">
         <div class="text-board-points"><%= @board.user_total %></div>
       </div>
       <%= button_to points_path, params: {user: @board.friendship.user, board: @board}, class: "btn-add-point" do %>
@@ -17,13 +16,12 @@
       </h2>
     </div>
     <div class="board-friend-user">
-      <div class="user-img-points">
-        <%= cl_image_tag @board.friendship.friend_user.profile_picture.key, height: 120, width: 120, crop: :fill, class: "img-board-user" %>
-        <div class="text-board-points"><%= @board.friend_user_total %></div>
-      </div>
       <%= button_to points_path, params: {user: @board.friendship.friend_user, board: @board}, class: "btn-add-point" do %>
         <%= image_tag "add.png", class: "btn-add-point" %>
       <% end %>
+      <div class="user-img-points" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @board.friendship.friend_user.profile_picture.key, crop: :fill%>')">
+        <div class="text-board-points"><%= @board.friend_user_total %></div>
+      </div>
     </div>
   </div>
 </div>

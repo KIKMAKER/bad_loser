@@ -12,7 +12,7 @@ $font-size-base:         1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
+$primary:    $neon-green;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -26,3 +26,18 @@ $border-radius-xl:            .5rem;
 $border-radius-xxl:           1rem;
 
 // Override other variables below!
+a {
+  color: $neon-green;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: darken($bright-pink, 10%);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: darken($neon-green, 20%);
+  }
+}
