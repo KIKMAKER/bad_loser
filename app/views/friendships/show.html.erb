@@ -1,5 +1,5 @@
 <div class="bad-container">
-  <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.friend.username %> </h1>
+  <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
     <% @boards.each do |board| %>
       <%= link_to board_path(board) do %>
         <p><%= board.name %></p>

@@ -11,12 +11,21 @@
     color: white
   }
 
+  .nav-link-image {
+    width: 36px;
+  }
+
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-brand {
+  margin: 0px;
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+
 }
