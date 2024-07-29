@@ -1,8 +1,8 @@
 <div class="bad-container">
   <div class="home-container">
     <% if current_user %>
-      <h2>Welcome <%= @user.username %></h2>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%>
+      <h2>Welcome <%= @user.username %></h2>
       <h3>just started</h3>
       <div class="scrolling-wrapper-flexbox">
         <% @recent_boards.each do |board| %>
@@ -13,7 +13,9 @@
                 <br>
                 <%= board.user_total %>
               </div>
-              <div><%= board.name %></div>
+              <div>
+                <h4><%= board.name %></h4>
+              </div>
               <div>
                 <%= board.friendship.friend_user.username %>
                 <br>
@@ -33,7 +35,9 @@
                 <br>
                 <%= board.user_total %>
               </div>
-              <div><%= board.name %></div>
+              <div>
+                <h4><%= board.name %></h4>
+              </div>
               <div>
                 <%= board.friendship.friend_user.username %>
                 <br>
@@ -53,7 +57,9 @@
                 <br>
                 <%= board.user_total %>
               </div>
-              <div><%= board.name %></div>
+              <div>
+                <h4><%= board.name %></h4>
+              </div>
               <div>
                 <%= board.friendship.friend_user.username %>
                 <br>
