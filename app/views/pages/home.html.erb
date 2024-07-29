@@ -4,28 +4,65 @@
       <h2>Welcome <%= @user.username %></h2>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%>
       <h3>just started</h3>
-
-      <ul>
+      <div class="scrolling-wrapper-flexbox">
         <% @recent_boards.each do |board| %>
-          <li><%= link_to board.name, board_path(board) %></li>
+          <%= link_to board_path(board) do %>
+            <div class="card-home">
+              <div>
+                <%= board.friendship.user.username %>
+                <br>
+                <%= board.user_total %>
+              </div>
+              <div><%= board.name %></div>
+              <div>
+                <%= board.friendship.friend_user.username %>
+                <br>
+                <%= board.friend_user_total %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      </ul>
-
+      </div>
       <h3>you're in the lead</h3>
-      <ul>
-      <% @winning_boards.each do |board| %>
-      <li><%= link_to board.name, board_path(board) %></li>
-      <% end %>
-      </ul>
-
-    <h3>you're losing bad</h3>
-      <ul>
-      <% @losing_boards.each do |board| %>
-      <li><%= link_to board.name, board_path(board) %></li>
-      <% end %>
-      </ul>
-
-
+      <div class="scrolling-wrapper-flexbox">
+        <% @winning_boards.each do |board| %>
+          <%= link_to board_path(board) do %>
+            <div class="card-home">
+              <div>
+                <%= board.friendship.user.username %>
+                <br>
+                <%= board.user_total %>
+              </div>
+              <div><%= board.name %></div>
+              <div>
+                <%= board.friendship.friend_user.username %>
+                <br>
+                <%= board.friend_user_total %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <h3>you're losing bad</h3>
+      <div class="scrolling-wrapper-flexbox">
+        <% @losing_boards.each do |board| %>
+          <%= link_to board_path(board) do %>
+            <div class="card-home">
+              <div>
+                <%= board.friendship.user.username %>
+                <br>
+                <%= board.user_total %>
+              </div>
+              <div><%= board.name %></div>
+              <div>
+                <%= board.friendship.friend_user.username %>
+                <br>
+                <%= board.friend_user_total %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% else %>
       <h1>Do you give too many fucks about winning?</h1>
       <p></p>
@@ -37,4 +74,5 @@
       <%= link_to "Begin", new_user_registration_path, class: "btn sign-up-btn" %>
     <% end %>
   </div>
+</div>
 </div>
