@@ -1,44 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
   <div class="container-fluid">
+    <%= link_to boards_path, class: "nav-link" do %>
+      <%= image_tag "boards.png", class: "nav-link-image" %>
+    <% end %>
+    <%= link_to new_board_path, class: "nav-link" do %>
+      <%= image_tag "addboard.png", class: "nav-link-image" %>
+    <% end %>
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "white_skull.png" %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "boards", boards_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "friends", friendships_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "+ board", new_board_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "+ friend", everyone_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= cl_image_tag current_user.profile_picture.key, height: 300, width: 400, crop: :fill, class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <%= link_to everyone_path, class: "nav-link" do %>
+      <%= image_tag "addfriend.png", class: "nav-link-image"  %>
+    <% end %>
+    <%= link_to friendships_path, class: "nav-link" do %>
+      <%= image_tag "friends.png", class: "nav-link-image" %>
+    <% end %>
   </div>
 </div>
+
+
