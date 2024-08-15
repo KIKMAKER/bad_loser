@@ -8,18 +8,18 @@
         <% @recent_boards.each do |board| %>
           <%= link_to board_path(board) do %>
             <div class="card-home">
-              <div>
-                <%= board.friendship.user.username %>
-                <br>
-                <%= board.user_total %>
-              </div>
-              <div>
-                <h4><%= board.name %></h4>
-              </div>
-              <div>
-                <%= board.friendship.friend_user.username %>
-                <br>
-                <%= board.friend_user_total %>
+              <h4><%= board.name %></h4>
+              <div class="card-home-stats">
+                <div>
+                  <%= board.friendship.user.username %>
+                  <br>
+                  <%= board.user_total %>
+                </div>
+                <div>
+                  <%= board.friendship.friend_user.username %>
+                  <br>
+                  <%= board.friend_user_total %>
+                </div>
               </div>
             </div>
           <% end %>
@@ -30,18 +30,18 @@
         <% @winning_boards.each do |board| %>
           <%= link_to board_path(board) do %>
             <div class="card-home">
-              <div>
-                <%= board.friendship.user.username %>
-                <br>
-                <%= board.user_total %>
-              </div>
-              <div>
-                <h4><%= board.name %></h4>
-              </div>
-              <div>
-                <%= board.friendship.friend_user.username %>
-                <br>
-                <%= board.friend_user_total %>
+              <h4><%= board.name %></h4>
+              <div class="card-home-stats">
+                <div>
+                  <%= board.friendship.user.username %>
+                  <br>
+                  <%= board.user_total %>
+                </div>
+                <div>
+                  <%= board.friendship.friend_user.username %>
+                  <br>
+                  <%= board.friend_user_total %>
+                </div>
               </div>
             </div>
           <% end %>
@@ -52,18 +52,18 @@
         <% @losing_boards.each do |board| %>
           <%= link_to board_path(board) do %>
             <div class="card-home">
-              <div>
-                <%= board.friendship.user.username %>
-                <br>
-                <%= board.user_total %>
-              </div>
-              <div>
-                <h4><%= board.name %></h4>
-              </div>
-              <div>
-                <%= board.friendship.friend_user.username %>
-                <br>
-                <%= board.friend_user_total %>
+              <h4><%= board.name %></h4>
+              <div class="card-home-stats">
+                <div>
+                  <%= board.friendship.user.username %>
+                  <br>
+                  <%= board.user_total %>
+                </div>
+                <div>
+                  <%= board.friendship.friend_user.username %>
+                  <br>
+                  <%= board.friend_user_total %>
+                </div>
               </div>
             </div>
           <% end %>
