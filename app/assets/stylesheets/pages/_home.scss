@@ -2,3 +2,19 @@
 .home-container {
   text-align: center;
 }
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  a{
+    text-decoration: none;
+  }
+
+
+
+  .card {
+    flex: 0 0 auto;
+  }
+}
