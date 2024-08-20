@@ -14,7 +14,19 @@
   font-size: 1.2em;
   margin: 1vh;
   text-decoration: none !important;
- &:hover {
+  &:hover {
     background-color: $bright-pink;
   }
+}
+
+.btn-login, .btn-signup {
+  background-color: $black;
+  color: $neon-green;
+  border: 3px solid $neon-green;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: $headers-font;
+  margin: 1vh;
+  border-radius: 16px;
+  text-decoration: none;
 }

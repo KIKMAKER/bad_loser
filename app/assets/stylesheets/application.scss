@@ -24,8 +24,14 @@ body {
 
 }
 
+.container-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .bad-container {
-    margin: 5vh 10vh;
+    margin: 5vh 10vw;
   }
 }
