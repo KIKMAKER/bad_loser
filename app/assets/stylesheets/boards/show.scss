@@ -1,27 +1,24 @@
-.user-img-points {
-  background-size: cover;
-  background-position: center;
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
 
 
 
-  .text-board-points {
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 120px;
 
-  }
+.text-board-points {
+  font-family: $headers-font;
+  font-size: 6rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 120px;
+
 }
+
 
 .board-user, .board-friend-user {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   flex-grow: 1;
   position: relative;
@@ -45,11 +42,14 @@
 }
 .text-board-name {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 8px 8px 0px 8px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  top: 50%;
+  transform: translate(0,-50%) rotate(180deg);
+  margin: 0;
+  z-index: 4;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 2rem;
 }
 
 .text-board-game {
@@ -64,29 +64,16 @@
   position: absolute;
   height: 100px;
   width: 100px;
-  bottom: -50px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   text-align: center;
   z-index: 1;
 }
 
 .text-board-username {
-  position: absolute;
-  bottom: -40px;
-  right: 0;
   z-index: 1;
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
-  padding-right: 8px;
-
-
-  .text-vs {
-    font-size: 1.5rem;
-    color: white;
-  }
-
 }
