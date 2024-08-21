@@ -13,12 +13,8 @@ if Point.count == 0 && Board.count == 0 && Friendship.count == 0 && User.count =
 end
 
 user = User.create!(email: "meg@cat.com", password: "123456", username: "Mr Kitty")
-file = URI.open("https://res.cloudinary.com/dq1yih0di/image/upload/fl_preserve_transparency/v1720126053/mister_kitty_andrw8.jpg?_s=public-apps")
-user.profile_picture.attach(io: file, filename: "mr_kitty.png", content_type: "image/png")
 user.save!
 user = User.create!(email: "ki@kitty.com", password: "secret", username: "Madame Cat")
-file = URI.open("https://res.cloudinary.com/dq1yih0di/image/upload/fl_preserve_transparency/v1720126381/madame_cat_qb5dag.jpg?_s=public-apps")
-user.profile_picture.attach(io: file, filename: "madame_cat.png", content_type: "image/png")
 user.save!
 
 puts "#{User.count} users created! #{User.first.username} and #{User.last.username}"
