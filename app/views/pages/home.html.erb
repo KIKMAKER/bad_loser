@@ -1,74 +1,103 @@
 <div class="bad-container">
+  <div class="container-dashboard-head">
+    <% if current_user %>
+      <h2>welcome <%= @user.username %></h2>
+      <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn-logout" %>
+    <% end %>
+  </div>
   <div class="home-container">
     <% if current_user %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%>
-      <h2>Welcome <%= @user.username %></h2>
-      <h3>just started</h3>
-      <div class="scrolling-wrapper-flexbox">
-        <% @recent_boards.each do |board| %>
-          <%= link_to board_path(board) do %>
-            <div class="card-home">
-              <h4><%= board.name %></h4>
-              <div class="card-home-stats">
-                <div>
-                  <%= board.friendship.user.username %>
-                  <br>
-                  <%= board.user_total %>
+      <% if @recent_boards.length > 0 %>
+        <div class="container-dashboard-section">
+          <h3>just started</h3>
+          <div class="scrolling-wrapper-flexbox">
+            <% @recent_boards.each do |board| %>
+              <%= link_to board_path(board) do %>
+                <div class="card-home">
+                  <h4><%= board.name %></h4>
+                  <div class="card-home-stats">
+                    <div>
+                      <%= board.friendship.user.username %>
+                      <br>
+                      <%= board.user_total %>
+                    </div>
+                    <div>
+                      <%= board.friendship.friend_user.username %>
+                      <br>
+                      <%= board.friend_user_total %>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <%= board.friendship.friend_user.username %>
-                  <br>
-                  <%= board.friend_user_total %>
-                </div>
-              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="container-dashboard-section">
+          <h3>you're in the lead</h3>
+          <% if @winning_boards.length > 0 %>
+            <div class="scrolling-wrapper-flexbox">
+              <% @winning_boards.each do |board| %>
+                <%= link_to board_path(board) do %>
+                  <div class="card-home">
+                    <h4><%= board.name %></h4>
+                    <div class="card-home-stats">
+                      <div>
+                        <%= board.friendship.user.username %>
+                        <br>
+                        <%= board.user_total %>
+                      </div>
+                      <div>
+                        <%= board.friendship.friend_user.username %>
+                        <br>
+                        <%= board.friend_user_total %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% else %>
+            <div>
+              <p>you are losing all your games</p>
             </div>
           <% end %>
-        <% end %>
-      </div>
-      <h3>you're in the lead</h3>
-      <div class="scrolling-wrapper-flexbox">
-        <% @winning_boards.each do |board| %>
-          <%= link_to board_path(board) do %>
-            <div class="card-home">
-              <h4><%= board.name %></h4>
-              <div class="card-home-stats">
-                <div>
-                  <%= board.friendship.user.username %>
-                  <br>
-                  <%= board.user_total %>
-                </div>
-                <div>
-                  <%= board.friendship.friend_user.username %>
-                  <br>
-                  <%= board.friend_user_total %>
-                </div>
-              </div>
+        </div>
+        <div class="container-dashboard-section">
+          <h3>you're losing bad</h3>
+          <% if @losing_boards.length > 0 %>
+            <div class="scrolling-wrapper-flexbox">
+              <% @losing_boards.each do |board| %>
+                <%= link_to board_path(board) do %>
+                  <div class="card-home">
+                    <h4><%= board.name %></h4>
+                    <div class="card-home-stats">
+                      <div>
+                        <%= board.friendship.user.username %>
+                        <br>
+                        <%= board.user_total %>
+                      </div>
+                      <div>
+                        <%= board.friendship.friend_user.username %>
+                        <br>
+                        <%= board.friend_user_total %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% else %>
+            <div>
+              <p>you are winning all your games</p>
             </div>
           <% end %>
-        <% end %>
-      </div>
-      <h3>you're losing bad</h3>
-      <div class="scrolling-wrapper-flexbox">
-        <% @losing_boards.each do |board| %>
-          <%= link_to board_path(board) do %>
-            <div class="card-home">
-              <h4><%= board.name %></h4>
-              <div class="card-home-stats">
-                <div>
-                  <%= board.friendship.user.username %>
-                  <br>
-                  <%= board.user_total %>
-                </div>
-                <div>
-                  <%= board.friendship.friend_user.username %>
-                  <br>
-                  <%= board.friend_user_total %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% else %>
+        <div class="div">
+          <p>you have no boards</p>
+          <p>add some and start losing</p>
+        </div>
+      <% end %>
     <% else %>
       <h1>Do you give too many fucks about winning?</h1>
       <p></p>
