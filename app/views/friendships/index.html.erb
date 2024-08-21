@@ -1,8 +1,12 @@
 <div class="bad-container">
   <h1>friends</h1>
     <% @friendships.each do |friendship| %>
-      <%= link_to friendship_path(friendship) do %>
-        <p class="link-friend"><%= friendship.user == current_user ? friendship.friend_user.username : friendship.user.username %> </p>
+      <%= link_to friendship_path(friendship), class: "link-friend" do %>
+        <p><%= friendship.user == current_user ? friendship.friend_user.username : friendship.user.username %> </p>
+        <p><%= friendship.user_points %></p>
+        <p><%= friendship.friend_points %></p>
+
+
       <% end %>
     <% end %>
 </div>
