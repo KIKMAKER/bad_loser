@@ -14,6 +14,7 @@ end
 
 user = User.create!(email: "meg@cat.com", password: "123456", username: "Mr Kitty")
 user.save!
+
 user = User.create!(email: "ki@kitty.com", password: "secret", username: "Madame Cat")
 user.save!
 
