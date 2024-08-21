@@ -1,10 +1,12 @@
 <div class="bad-container">
   <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
-    <% @boards.each do |board| %>
-      <%= link_to board_path(board) do %>
-        <p><%= board.name %></p>
-      <% end %>
+  <% @boards.each do |board| %>
+    <%= link_to board_path(board) do %>
+      <p><%= board.name %></p>
     <% end %>
-    <br>
-  <%= link_to "New Board", new_board_path, class: "sign-up-btn" %>
+  <% end %>
+  <br>
+  <%= button_to "new board", new_board_path, params: {friendship_id: @friendship.id}, method: :get, class: "sign-up-btn" %>
+
+
 </div>
