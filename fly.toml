@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for bad-loser on 2024-08-20T14:42:28+02:00
+# fly.toml app configuration file generated for bad-loser on 2024-08-21T11:30:12+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -8,9 +8,6 @@ primary_region = 'jnb'
 console_command = '/rails/bin/rails console'
 
 [build]
-
-[deploy]
-  release_command = './bin/rails db:prepare'
 
 [http_service]
   internal_port = 3000
@@ -39,7 +36,10 @@ console_command = '/rails/bin/rails console'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+[deploy]
+  release_command = "./bin/rails db:prepare"
 
 [[statics]]
-  guest_path = '/rails/public'
-  url_prefix = '/'
+  guest_path = "/rails/public"
+  url_prefix = "/"
+
