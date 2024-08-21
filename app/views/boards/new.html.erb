@@ -1,10 +1,14 @@
 <div class="bad-container">
-  <h1>New Board with <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %></h1>
+  <% if @friendship %>
+    <h1>New Board with <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %></h1>
+  <% else %>
+    <h1>new board</h1>
+  <% end %>
   <%= simple_form_for @board do |f| %>
     <%= f.input :game, label: "What's the game?" %>
     <%= f.input :name, label: "Name the board" %>
     <% if @friendship %>
-      <%= f.input :friendship_id, as: :hidden, input_html: { value: (@friendship.user == current_user ? @friendship.friend_user.id : @friendship.user.id) + 1 }  %>
+      <%= f.input :friendship_id, as: :hidden, input_html: { value: @friendship.id }  %>
     <% else %>
       <%= f.input :friendship_id, collection: @friendships, label: "Pick a friend", label_method: lambda { |friendship| friendship.user == current_user ? friendship.friend_user.username : friendship.user.username} %>
     <% end %>
