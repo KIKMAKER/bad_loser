@@ -51,7 +51,6 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "dotenv-rails"
-gem "nary"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -77,3 +76,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "aws-sdk-s3", "~> 1.158", :require => false
