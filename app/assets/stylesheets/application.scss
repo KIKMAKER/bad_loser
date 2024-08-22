@@ -11,6 +11,7 @@
 @import "components/index";
 @import "pages/index";
 @import "boards/show";
+@import "boards/index";
 @import "friendships/index";
 
 body {
@@ -20,9 +21,9 @@ body {
 
 .bad-container {
   margin: 5vh 4vw;
+  margin-bottom: 10vh;
+  min-height: 82vh;
   text-align: center;
-  height: 82vh;
-
 }
 
 .container-centered {

@@ -1,0 +1,14 @@
+.link-board {
+  text-decoration: none;
+  p {
+      border-bottom: solid $white 1px;
+  font-family: $headers-font;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  line-height: 2;
+  }
+
+}
