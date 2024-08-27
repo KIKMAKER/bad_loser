@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     if current_user
       @user = User.find(current_user.id)
-      @recent_boards = @user.boards.order(:created_at).reverse[0..2]
+      @recent_boards = @user.boards.order(created_at: :desc).limit(3)
       @winning_boards = @user.boards.select do |board|
         board.friendship.user == current_user ? board.user_total > board.friend_user_total : board.friend_user_total > board.user_total
       end
@@ -12,10 +12,8 @@ class PagesController < ApplicationController
         board.friendship.user == current_user ? board.user_total > board.friend_user_total : board.friend_user_total > board.user_total
       end
     end
-
   end
 
-  # at some point exclude users that are already added as friends
   def everyone
     @everyone = User.where.not(id: current_user.id)
     @everyone = @everyone.reject do |user|
@@ -24,5 +22,4 @@ class PagesController < ApplicationController
       end
     end
   end
-
 end
