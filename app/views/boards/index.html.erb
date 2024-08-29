@@ -1,15 +1,16 @@
-<div class="bad-container">
-  <h1>boards</h1>
+<div class="container-centered">
+  <div class="bad-container">
+    <h1>boards</h1>
     <% @boards.each do |board| %>
       <%= link_to board_path(board), class: "link-board" do %>
         <p>
-        <%= board.name %>
-        <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total < board.friend_user_total && current_user == board.friendship.user %>
-        <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total > board.friend_user_total && current_user == board.friendship.friend_user %>
+          <%= board.name %>
+          <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total < board.friend_user_total && current_user == board.friendship.user %>
+          <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total > board.friend_user_total && current_user == board.friendship.friend_user %>
         </p>
-
       <% end %>
     <% end %>
     <br>
-  <%= link_to "New Board", new_board_path, class: "sign-up-btn" %>
+    <%= link_to "New Board", new_board_path, class: "sign-up-btn" %>
+  </div>
 </div>

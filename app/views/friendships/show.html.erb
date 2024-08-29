@@ -1,16 +1,18 @@
-<div class="bad-container">
-  <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
-  <p><%= @friendship.user_points %></p>
-  <p><%= @friendship.friend_points %></p>
-  <% @boards.each do |board| %>
-    <%= link_to board_path(board), class: "link-board" do %>
-      <p>
-        <%= board.name %>
-        <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total < board.friend_user_total && current_user == board.friendship.user %>
-        <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total > board.friend_user_total && current_user == board.friendship.friend_user %>
-      </p>
+<div class="container-centered">
+  <div class="bad-container">
+    <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
+    <p><%= @friendship.user_points %></p>
+    <p><%= @friendship.friend_points %></p>
+    <% @boards.each do |board| %>
+      <%= link_to board_path(board), class: "link-board" do %>
+        <p>
+          <%= board.name %>
+          <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total < board.friend_user_total && current_user == board.friendship.user %>
+          <%= image_tag "white_skull.png", class: "img-friendship-skull" if board.user_total > board.friend_user_total && current_user == board.friendship.friend_user %>
+        </p>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
-  <%= button_to "new board", new_board_path, params: {friendship_id: @friendship.id}, method: :get, class: "sign-up-btn" %>
+    <br>
+    <%= button_to "new board", new_board_path, params: {friendship_id: @friendship.id}, method: :get, class: "sign-up-btn" %>
+  </div>
 </div>

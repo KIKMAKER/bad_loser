@@ -5,7 +5,8 @@
   align-content: center;
   padding: 8px;
   margin: 8px;
-  width: 90vw;
+  min-width: 300px;
+  max-width: 380px;
   text-decoration: none;
   color: $neon-green;
   border: 3px solid $neon-green;

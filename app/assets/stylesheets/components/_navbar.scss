@@ -7,6 +7,13 @@
   width: 100%;
   z-index: 1;
   height: 8vh;
+  display: flex;
+  justify-content: center;
+
+  .container-icons {
+    max-width: 400px;
+  }
+
 
   .nav-link {
     color: white

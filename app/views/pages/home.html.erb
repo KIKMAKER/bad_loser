@@ -1,104 +1,105 @@
-<div class="bad-container">
-  <div class="container-dashboard-head">
+<div class="container-centered">
+  <div class="bad-container">
+    <div class="container-dashboard-head">
+      <% if current_user %>
+        <h2>welcome <%= @user.username %></h2>
+        <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn-logout" %>
+      <% end %>
+    </div>
     <% if current_user %>
-      <h2>welcome <%= @user.username %></h2>
-      <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn-logout" %>
-    <% end %>
-  </div>
-    <% if current_user %>
-  <div class="home-container">
-      <% if @recent_boards.length > 0 %>
-        <div class="container-dashboard-section">
-          <h3>just started</h3>
-          <div class="scrolling-wrapper-flexbox">
-            <% @recent_boards.each do |board| %>
-              <%= link_to board_path(board) do %>
-                <div class="card-home">
-                  <h4><%= board.name %></h4>
-                  <div class="card-home-stats">
-                    <div>
-                      <%= board.friendship.user.username %>
-                      <br>
-                      <%= board.user_total %>
-                    </div>
-                    <div>
-                      <%= board.friendship.friend_user.username %>
-                      <br>
-                      <%= board.friend_user_total %>
+      <div class="home-container">
+        <% if @recent_boards.length > 0 %>
+          <div class="container-dashboard-section">
+            <h3>just started</h3>
+            <div class="scrolling-wrapper-flexbox">
+              <% @recent_boards.each do |board| %>
+                <%= link_to board_path(board) do %>
+                  <div class="card-home">
+                    <h4><%= board.name %></h4>
+                    <div class="card-home-stats">
+                      <div>
+                        <%= board.friendship.user.username %>
+                        <br>
+                        <%= board.user_total %>
+                      </div>
+                      <div>
+                        <%= board.friendship.friend_user.username %>
+                        <br>
+                        <%= board.friend_user_total %>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
+            </div>
+          </div>
+          <div class="container-dashboard-section">
+            <h3>you're in the lead</h3>
+            <% if @winning_boards.length > 0 %>
+              <div class="scrolling-wrapper-flexbox">
+                <% @winning_boards.each do |board| %>
+                  <%= link_to board_path(board) do %>
+                    <div class="card-home">
+                      <h4><%= board.name %></h4>
+                      <div class="card-home-stats">
+                        <div>
+                          <%= board.friendship.user.username %>
+                          <br>
+                          <%= board.user_total %>
+                        </div>
+                        <div>
+                          <%= board.friendship.friend_user.username %>
+                          <br>
+                          <%= board.friend_user_total %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% else %>
+              <div>
+                <p>you are losing all your games</p>
+              </div>
             <% end %>
           </div>
-        </div>
-        <div class="container-dashboard-section">
-          <h3>you're in the lead</h3>
-          <% if @winning_boards.length > 0 %>
-            <div class="scrolling-wrapper-flexbox">
-              <% @winning_boards.each do |board| %>
-                <%= link_to board_path(board) do %>
-                  <div class="card-home">
-                    <h4><%= board.name %></h4>
-                    <div class="card-home-stats">
-                      <div>
-                        <%= board.friendship.user.username %>
-                        <br>
-                        <%= board.user_total %>
-                      </div>
-                      <div>
-                        <%= board.friendship.friend_user.username %>
-                        <br>
-                        <%= board.friend_user_total %>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          <% else %>
-            <div>
-              <p>you are losing all your games</p>
-            </div>
-          <% end %>
-        </div>
-        <div class="container-dashboard-section">
-          <h3>you're losing bad</h3>
-          <% if @losing_boards.length > 0 %>
-            <div class="scrolling-wrapper-flexbox">
-              <% @losing_boards.each do |board| %>
-                <%= link_to board_path(board) do %>
-                  <div class="card-home">
-                    <h4><%= board.name %></h4>
-                    <div class="card-home-stats">
-                      <div>
-                        <%= board.friendship.user.username %>
-                        <br>
-                        <%= board.user_total %>
-                      </div>
-                      <div>
-                        <%= board.friendship.friend_user.username %>
-                        <br>
-                        <%= board.friend_user_total %>
+          <div class="container-dashboard-section">
+            <h3>you're losing bad</h3>
+            <% if @losing_boards.length > 0 %>
+              <div class="scrolling-wrapper-flexbox">
+                <% @losing_boards.each do |board| %>
+                  <%= link_to board_path(board) do %>
+                    <div class="card-home">
+                      <h4><%= board.name %></h4>
+                      <div class="card-home-stats">
+                        <div>
+                          <%= board.friendship.user.username %>
+                          <br>
+                          <%= board.user_total %>
+                        </div>
+                        <div>
+                          <%= board.friendship.friend_user.username %>
+                          <br>
+                          <%= board.friend_user_total %>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-          <% else %>
-            <div>
-              <p>you are winning all your games</p>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="div">
-          <p>you have no boards</p>
-          <p>add some and start losing</p>
-        </div>
-      <% end %>
-  </div>
+              </div>
+            <% else %>
+              <div>
+                <p>you are winning all your games</p>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="div">
+            <p>you have no boards</p>
+            <p>add some and start losing</p>
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <h1>Do you give too many fucks about winning?</h1>
       <p></p>
@@ -109,5 +110,6 @@
       <h1>Are you a bad loser?</h1>
       <%= link_to "Begin", new_user_registration_path, class: "btn sign-up-btn" %>
     <% end %>
+  </div>
 </div>
 </div>

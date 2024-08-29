@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   min-height: 80vh;
+  max-height: 80vh;
   p {
     font-family: $headers-font;
     color: $neon-green;
@@ -21,7 +22,7 @@
 .scrolling-wrapper-flexbox {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
 
   a{
     text-decoration: none;
@@ -32,4 +33,25 @@
   .card {
     flex: 0 0 auto;
   }
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $neon-green;
+  border-radius: 20px;
+  width: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
