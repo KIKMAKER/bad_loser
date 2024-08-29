@@ -8,29 +8,31 @@ Board.destroy_all
 Friendship.destroy_all
 User.destroy_all
 
-if Point.count == 0 && Board.count == 0 && Friendship.count == 0 && User.count == 0
-  puts "DB is clear!"
-end
+puts "Cleared the DB..."
 
-user = User.create!(email: "meg@cat.com", password: "123456", username: "Mr Kitty")
-user.save!
+# if Point.count == 0 && Board.count == 0 && Friendship.count == 0 && User.count == 0
+#   puts "DB is clear!"
+# end
 
-user = User.create!(email: "ki@kitty.com", password: "secret", username: "Madame Cat")
-user.save!
+# user = User.create!(email: "meg@cat.com", password: "123456", username: "Mr Kitty")
+# user.save!
 
-puts "#{User.count} users created! #{User.first.username} and #{User.last.username}"
+# user = User.create!(email: "ki@kitty.com", password: "secret", username: "Madame Cat")
+# user.save!
 
-Friendship.create!(user: User.first, friend_user: User.last)
+# puts "#{User.count} users created! #{User.first.username} and #{User.last.username}"
 
-puts "#{Friendship.count} friendship created! #{Friendship.first.user.username} and #{Friendship.first.friend_user.username}"
+# Friendship.create!(user: User.first, friend_user: User.last)
 
-Board.create!(name: "Badgammon", friendship: Friendship.first, game: "Backgammon")
+# puts "#{Friendship.count} friendship created! #{Friendship.first.user.username} and #{Friendship.first.friend_user.username}"
 
-puts "#{Board.count} board created! #{Board.first.name} by #{Board.first.friendship.user.username} with #{Board.first.friendship.friend_user.username}"
+# Board.create!(name: "Badgammon", friendship: Friendship.first, game: "Backgammon")
 
-Point.create!(board: Board.first, user: User.first, value: 3)
-Point.create!(board: Board.first, user: User.last, value: 1)
+# puts "#{Board.count} board created! #{Board.first.name} by #{Board.first.friendship.user.username} with #{Board.first.friendship.friend_user.username}"
 
-puts "#{Point.count} points created so #{Point.first.user.username} wins #{Point.first.board.name}"
+# Point.create!(board: Board.first, user: User.first, value: 3)
+# Point.create!(board: Board.first, user: User.last, value: 1)
 
-puts "And thats it! DB is seeded!"
+# puts "#{Point.count} points created so #{Point.first.user.username} wins #{Point.first.board.name}"
+
+# puts "And thats it! DB is seeded!"

@@ -4,11 +4,13 @@ class PagesController < ApplicationController
   def home
     if current_user
       @user = User.find(current_user.id)
-      @recent_boards = @user.boards.order(created_at: :desc).limit(3)
-      @winning_boards = @user.boards.select do |board|
+      all_boards = Board.joins(:friendship).where(friendships: { user_id: @user.id }).or(Board.joins(:friendship).where(friendships: { friend_user_id: @user.id }))
+
+      @recent_boards = all_boards.order(created_at: :desc).limit(3)
+      @winning_boards = all_boards.select do |board|
         board.friendship.user == current_user ? board.user_total > board.friend_user_total : board.friend_user_total > board.user_total
       end
-      @losing_boards = @user.boards.reject do |board|
+      @losing_boards = all_boards.reject do |board|
         board.friendship.user == current_user ? board.user_total > board.friend_user_total : board.friend_user_total > board.user_total
       end
     end

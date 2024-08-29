@@ -14,4 +14,10 @@ class User < ApplicationRecord
   def all_friendships
     Friendship.where('user_id = :id OR friend_user_id = :id', id: self.id)
   end
+
+  def all_boards
+    
+
+  end
+
 end
