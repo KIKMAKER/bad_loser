@@ -3,7 +3,6 @@ class BoardsController < ApplicationController
     @board = Board.new
     @friendships = current_user.all_friendships
     @friendship = Friendship.find(params[:friendship_id]) if params[:friendship_id]
-
   end
 
   def show
