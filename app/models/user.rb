@@ -16,8 +16,7 @@ class User < ApplicationRecord
   end
 
   def all_boards
-    
-
+    Board.joins(:friendship)
+         .merge(Friendship.where('user_id = ? OR friend_user_id = ?', self.id, self.id))
   end
-
 end
