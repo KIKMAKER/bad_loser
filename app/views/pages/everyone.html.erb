@@ -1,11 +1,13 @@
-<div class="bad-container">
-  <h1>add a friend</h1>
-  <ul>
-    <% @everyone.each do |user| %>
-      <li>
-        <%= user.username %>
-        <%= button_to "add a friend", friendships_path(friend_user_id: user.id)  %>
-      </li>
-    <% end %>
-  </ul>
+<div class="container-centered">
+  <div class="bad-container">
+    <h1>add a friend</h1>
+    <ul class="list-add-friend">
+      <% @everyone.each do |user| %>
+        <li class="list-item-add-friend">
+          <p><%= user.username %></p>
+          <%= button_to "add", friendships_path(friend_user_id: user.id), class: "btn-add-friend"  %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

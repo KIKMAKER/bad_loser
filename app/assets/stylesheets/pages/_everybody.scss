@@ -1,0 +1,22 @@
+.list-add-friend {
+
+  padding-left: 0;
+}
+
+.list-item-add-friend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid $white 1px;
+
+
+
+  p {
+    font-family: $headers-font;
+    line-height: 2;
+    font-size: 2rem;
+    margin: 0;
+  };
+
+
+}

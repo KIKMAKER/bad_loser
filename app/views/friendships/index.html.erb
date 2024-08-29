@@ -6,12 +6,12 @@
         <% if friendship.user == current_user  %>
           <p>
             <%= friendship.friend_user.username %>
-            <%= image_tag "white_skull.png", class: "img-friendship-skull" if friendship.user_points > friendship.friend_points %>
+            <%= image_tag "white_skull.png", class: "img-friendship-skull" if friendship.user_points < friendship.friend_points %>
           </p>
         <% else %>
           <p>
             <%= friendship.user.username %>
-            <%= image_tag "white_skull.png", class: "img-friendship-skull" if friendship.user_points < friendship.friend_points %>
+            <%= image_tag "white_skull.png", class: "img-friendship-skull" if friendship.user_points > friendship.friend_points %>
           </p>
         <% end %>
       <% end %>
