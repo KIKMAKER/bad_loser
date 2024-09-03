@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :boards, only: %i[index new create show]
 
-  resources :points, only: [:create]
+  resources :points, only: [:create, :destroy]
 end
