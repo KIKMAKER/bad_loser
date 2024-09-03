@@ -16,19 +16,24 @@
 @import "boards/index";
 @import "friendships/index";
 
+html {
+  height: 100%;
+}
+
 body {
-  background-color: $gray;
+  height: 100%;
+
+  background-color: $black;
   color: $light-gray;
 }
 
 .bad-container {
-  margin: 5vh 4vw;
-  margin-bottom: 10vh;
-  max-height: 80vh;
+  padding: 8% 0;
   text-align: center;
   max-width: 400px;
   min-width: 300px;
   overflow-y: scroll;
+  height: 100%;
 }
 
 .bad-container::-webkit-scrollbar {
@@ -39,15 +44,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 92%;
 
 }
 
 .bad-container::-webkit-scrollbar {
   display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .bad-container {
-    margin: 5vh 10vw;
-  }
 }

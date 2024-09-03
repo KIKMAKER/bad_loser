@@ -3,21 +3,40 @@
 .btn-add-user-point {
   position: absolute;
   background-color: transparent;
-  right: 25px;
-  bottom: 30px;
+  right: 30px;
+  bottom: 50px;
   border: none;
   width: 50px;
   height: 50px;
+}
+.btn-minus-user-point {
+  position: absolute;
+  background-color: transparent;
+  right: 36px;
+  top: 50px;
+  border: none;
+  width: 25px;
+  height: 25px;
 }
 
 .btn-add-friend-point {
   position: absolute;
   background-color: transparent;
-  right: 25px;
-  top: 30px;
+  right: 30px;
+  top: 50px;
   border: none;
   width: 50px;
   height: 50px;
+}
+
+.btn-minus-friend-point {
+  position: absolute;
+  background-color: transparent;
+  right: 36px;
+  bottom: 50px;
+  border: none;
+  width: 25px;
+  height: 25px;
 }
 
 
@@ -36,9 +55,8 @@
 
 .board-user, .board-friend-user {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   flex-grow: 1;
   position: relative;
@@ -46,17 +64,26 @@
 
 .board-user {
   background-color: $neon-green;
+  position: relative;
+  .text-board-username {
+    position: absolute;
+    top: 0;
+  }
 
 }
 
 .board-friend-user {
   background-color: $bright-pink;
+  .text-board-username {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 .container-board {
   display: flex;
   flex-direction: column;
-  height: 92vh;
+  height: 100%;
   position: relative;
   max-width: 400px;
   flex-grow: 1;
@@ -73,6 +100,7 @@
   z-index: 4;
   font-weight: 700;
   font-size: 2rem;
+  text-wrap: nowrap;
 }
 
 .text-board-game {
@@ -96,8 +124,9 @@
 
 .text-board-username {
   z-index: 1;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
   text-align: center;
   padding: 8px;
+  color: $black;
 }

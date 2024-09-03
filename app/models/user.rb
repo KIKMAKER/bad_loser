@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships, source: :friend_user
   has_many :points, dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: { maximum: 12 }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -16,7 +16,6 @@ class User < ApplicationRecord
   end
 
   def all_boards
-    Board.joins(:friendship)
-         .merge(Friendship.where('user_id = ? OR friend_user_id = ?', self.id, self.id))
+    Board.joins(:friendship).merge(Friendship.where('user_id = ? OR friend_user_id = ?', self.id, self.id))
   end
 end

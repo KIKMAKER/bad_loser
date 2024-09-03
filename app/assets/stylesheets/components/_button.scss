@@ -6,6 +6,7 @@
   padding: 10px 20px;
   font-size: 1.2em;
   margin: 1vh;
+  width: fit-content;
   text-decoration: none !important;
   &:hover {
     background-color: $bright-pink;
@@ -21,7 +22,6 @@
   font-family: $headers-font;
   margin: 1vh;
   border-radius: 16px;
-  text-decoration: none;
 }
 
 .btn-logout {

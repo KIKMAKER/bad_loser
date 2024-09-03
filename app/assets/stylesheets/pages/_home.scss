@@ -35,23 +35,3 @@
   }
 }
 
-::-webkit-scrollbar {
-  height: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: $gray;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $neon-green;
-  border-radius: 20px;
-  width: 6px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
