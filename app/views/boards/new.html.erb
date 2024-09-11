@@ -13,7 +13,7 @@
     <% else %>
       <%= f.input :friendship_id, collection: @friendships, label: "Pick a friend", label_method: lambda { |friendship| friendship.user == current_user ? friendship.friend_user.username : friendship.user.username} %>
     <% end %>
-    <%= f.button :submit, "Make it", class: "sign-up-btn" %>
+    <%= f.button :submit, "make it", class: "sign-up-btn" %>
   <% end %>
 </div>
 </div>
