@@ -1,17 +1,17 @@
 <div class="container-centered">
 <div class="bad-container">
   <% if @friendship %>
-    <h1>New Board with <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %></h1>
+    <h1>new board with <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %></h1>
   <% else %>
     <h1>new board</h1>
   <% end %>
   <%= simple_form_for @board do |f| %>
-    <%= f.input :game, label: "What's the game?" %>
-    <%= f.input :name, label: "Name the board" %>
+    <%= f.input :game, label: "what are you playing?", placeholder: "state the game..." %>
+    <%= f.input :name, label: "name the board", placeholder: "max 12 characters..." %>
     <% if @friendship %>
-      <%= f.input :friendship_id, as: :hidden, input_html: { value: @friendship.id }  %>
+      <%= f.input :friendship_id, as: :hidden, input_html: { value: @friendship.id }, placeholder: "who is the opponent?"  %>
     <% else %>
-      <%= f.input :friendship_id, collection: @friendships, label: "Pick a friend", label_method: lambda { |friendship| friendship.user == current_user ? friendship.friend_user.username : friendship.user.username} %>
+      <%= f.input :friendship_id, collection: @friendships, label: "pick a friend", label_method: lambda { |friendship| friendship.user == current_user ? friendship.friend_user.username : friendship.user.username}, placeholder: "who is the opponent?"  %>
     <% end %>
     <%= f.button :submit, "make it", class: "sign-up-btn" %>
   <% end %>
