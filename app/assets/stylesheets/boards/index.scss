@@ -28,13 +28,12 @@
     text-align: center;
   }
 
-  .list-boards {
-    flex-grow: 1;
-    overflow-y: scroll;
-    margin-bottom: 8px;
-    padding-right: 16px;
+}
+.list-boards {
+  flex-grow: 1;
+  overflow-y: scroll;
+  margin-bottom: 2em;
 
-  }
 }
 
 .container-boards::-webkit-scrollbar {

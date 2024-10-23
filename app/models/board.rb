@@ -2,7 +2,7 @@ class Board < ApplicationRecord
   belongs_to :friendship
   has_many :points, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 26 }
+  validates :name, presence: true, length: { maximum: 12 }
   validates :game, presence: true
 
   def user_total

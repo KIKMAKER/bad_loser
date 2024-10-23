@@ -3,6 +3,32 @@
   padding-left: 0;
 }
 
+.list-everyone {
+  flex-grow: 1;
+  overflow-y: scroll;
+  margin-bottom: 2em;
+}
+
+.each-one {
+  border-bottom: solid #fff 1px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  line-height: 2;
+  p {
+    font-family: $headers-font;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    line-height: 2;
+    color: $neon-green
+  }
+
+}
+
 .list-item-add-friend {
   display: flex;
   justify-content: space-between;
