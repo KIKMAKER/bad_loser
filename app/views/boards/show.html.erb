@@ -1,30 +1,34 @@
 <div class="container-centered">
-  <div class="container-board">
-    <h2 class="text-board-name"><%= @board.name.upcase %></h2>
-    <%= image_tag "skull.png", class: "img-board-skull" %>
-    <div class="board-user">
-      <h2 class="text-board-username">
-        <%= @board.friendship.user.username %>
-      </h2>
-      <div class="text-board-points"><%= @board.user_total %></div>
-      <%= button_to point_path(), params: {user: @board.friendship.user, board: @board}, method: :delete, class: "btn-minus-user-point" do %>
-        <%= image_tag "minus.png", class: "btn-minus-user-point"%>
-      <% end %>
-      <%= button_to points_path, params: {user: @board.friendship.user, board: @board}, class: "btn-add-user-point" do %>
-        <%= image_tag "add.png", class: "btn-add-user-point"%>
-      <% end %>
+    <% if current_user == @board.friendship.user || current_user == @board.friendship.friend_user %>
+    <div class="container-board">
+      <h2 class="text-board-name"><%= @board.name.upcase %></h2>
+      <%= image_tag "skull.png", class: "img-board-skull" %>
+      <div class="board-user">
+        <h2 class="text-board-username">
+          <%= @board.friendship.user.username %>
+        </h2>
+        <div class="text-board-points"><%= @board.user_total %></div>
+        <%= button_to point_path(), params: {user: @board.friendship.user, board: @board}, method: :delete, class: "btn-minus-user-point" do %>
+          <%= image_tag "minus.png", class: "btn-minus-user-point"%>
+        <% end %>
+        <%= button_to points_path, params: {user: @board.friendship.user, board: @board}, class: "btn-add-user-point" do %>
+          <%= image_tag "add.png", class: "btn-add-user-point"%>
+        <% end %>
+      </div>
+      <div class="board-friend-user">
+        <%= button_to points_path, params: {user: @board.friendship.friend_user, board: @board}, class: "btn-add-friend-point" do %>
+          <%= image_tag "add.png", class: "btn-add-friend-point" %>
+        <% end %>
+        <%= button_to point_path(), params: {user: @board.friendship.friend_user, board: @board}, method: :delete, class: "btn-minus-friend-point" do %>
+          <%= image_tag "minus.png", class: "btn-minus-friend-point" %>
+        <% end %>
+        <div class="text-board-points"><%= @board.friend_user_total %></div>
+        <h2 class="text-board-username">
+          <%= @board.friendship.friend_user.username %>
+        </h2>
+      </div>
     </div>
-    <div class="board-friend-user">
-      <%= button_to points_path, params: {user: @board.friendship.friend_user, board: @board}, class: "btn-add-friend-point" do %>
-        <%= image_tag "add.png", class: "btn-add-friend-point" %>
-      <% end %>
-      <%= button_to point_path(), params: {user: @board.friendship.friend_user, board: @board}, method: :delete, class: "btn-minus-friend-point" do %>
-        <%= image_tag "minus.png", class: "btn-minus-friend-point" %>
-      <% end %>
-      <div class="text-board-points"><%= @board.friend_user_total %></div>
-      <h2 class="text-board-username">
-        <%= @board.friendship.friend_user.username %>
-      </h2>
-    </div>
-  </div>
+  <% else %>
+    <h3 class="m-5">This board does not belong to you!</h3>
+  <% end %>
 </div>
