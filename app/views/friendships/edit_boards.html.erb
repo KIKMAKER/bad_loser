@@ -1,0 +1,25 @@
+<div class="container-centered">
+  <div class="bad-container">
+    <div class="list-boards">
+      <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
+      <%= link_to friendship_path(@friendship) do  %>
+        <i class="fa-solid fa-check"></i>
+      <% end %>
+      <% @boards.each do |board| %>
+        <div class="edit-boards-item">
+          <p>
+            <%= board.name %>
+          </p>
+          <div>
+            <%= link_to edit_board_path(board, from: "friendship") do  %>
+              <i class="fa-solid fa-pen"></i>
+            <% end %>
+            <%= link_to board_path(board), data: {turbo_method: :delete} do  %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

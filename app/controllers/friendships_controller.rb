@@ -17,4 +17,9 @@ class FriendshipsController < ApplicationController
       redirect_to everyone_path, alert: 'Failed to add friend.'
     end
   end
+
+  def edit_boards
+    @friendship = Friendship.find(params[:id])
+    @boards = @friendship.boards
+  end
 end
