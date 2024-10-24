@@ -14,7 +14,7 @@
             <%= link_to edit_board_path(board, from: "friendship") do  %>
               <i class="fa-solid fa-pen"></i>
             <% end %>
-            <%= link_to board_path(board), data: {turbo_method: :delete} do  %>
+            <%= link_to board_path(board, from: "friendship"), data: {turbo_method: :delete} do  %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
