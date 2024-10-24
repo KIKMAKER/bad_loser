@@ -17,7 +17,12 @@ Rails.application.routes.draw do
     resources :boards, only: [:index]
   end
 
-  resources :boards, only: %i[index new create show]
+  resources :boards, only: %i[index new create show edit update destroy] do
+    collection do
+      get 'edit', to: "boards#edit_boards"
+    end
+
+  end
 
   resources :points, only: [:create, :destroy]
 end

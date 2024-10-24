@@ -1,0 +1,25 @@
+.edit-boards-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  border-bottom: solid $white 1px;
+
+  p {
+    font-size: 2rem;
+    font-family: $headers-font;
+    margin: 0px;
+    line-height: 2;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 1rem;
+    margin: 0 8px;
+  }
+
+
+}

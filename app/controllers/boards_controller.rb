@@ -24,6 +24,30 @@ class BoardsController < ApplicationController
     end
   end
 
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    @board = Board.find(params[:id])
+    @board.update(board_params)
+    if @board.save
+      redirect_to edit_boards_path
+    end
+  end
+
+  def destroy
+    @board = Board.find(params[:id])
+    if @board.destroy
+      redirect_to edit_boards_path
+    end
+
+  end
+
+  def edit_boards
+    @boards = Board.joins(:friendship).where(friendships: { user_id: current_user.id }).or(Board.joins(:friendship).where(friendships: { friend_user_id: current_user.id }))
+  end
+
   private
 
   def board_params
