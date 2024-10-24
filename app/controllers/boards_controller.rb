@@ -39,9 +39,11 @@ class BoardsController < ApplicationController
   end
 
   def destroy
+
     @board = Board.find(params[:id])
+    next_path = params[:from] == "friendship" ? edit_boards_friendship_path(@board.friendship) : edit_boards_path
     if @board.destroy
-      redirect_to edit_boards_path
+      redirect_to next_path
     end
 
   end
