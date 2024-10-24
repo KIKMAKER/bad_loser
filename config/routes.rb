@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :friendships, only: %i[create index show] do
+    member do
+      get 'edit_boards', to: "friendships#edit_boards"
+    end
+
     resources :boards, only: [:index]
   end
 

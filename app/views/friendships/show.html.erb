@@ -1,6 +1,9 @@
 <div class="container-centered">
   <div class="bad-container">
     <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
+    <%= link_to edit_boards_friendship_path(@friendship) do  %>
+        <i class="fa-solid fa-gears"></i>
+      <% end %>
     <div class="friendship-score-overall">
       <p class="friendship-score-user"><%= @friendship.user_points %></p>
       <p class="friendship-score-friend"><%= @friendship.friend_points %></p>

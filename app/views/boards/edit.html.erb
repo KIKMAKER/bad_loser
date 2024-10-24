@@ -4,7 +4,9 @@
   <%= simple_form_for @board do |f| %>
     <%= f.input :game, label: "what are you playing?", value: @board.game %>
     <%= f.input :name, label: "name the board", value: @board.name %>
-    <%= f.button :submit, "update it", class: "sign-up-btn" %>
+    <%= f.hidden_field :from, value: @from %>
+    <%= f.button :submit, "update it", class: "sign-up-btn"%>
+
   <% end %>
 </div>
 </div>

@@ -26,13 +26,15 @@ class BoardsController < ApplicationController
 
   def edit
     @board = Board.find(params[:id])
+    @from = params[:from]
   end
 
   def update
     @board = Board.find(params[:id])
+    next_path = params[:board][:from] == "friendship" ? edit_boards_friendship_path(@board.friendship) : edit_boards_path
     @board.update(board_params)
     if @board.save
-      redirect_to edit_boards_path
+      redirect_to next_path
     end
   end
 
