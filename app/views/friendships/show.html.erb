@@ -1,8 +1,10 @@
 <div class="container-centered">
   <div class="bad-container">
     <h1>Me vs <%= @friendship.user == current_user ? @friendship.friend_user.username : @friendship.user.username %> </h1>
-    <p><%= @friendship.user_points %></p>
-    <p><%= @friendship.friend_points %></p>
+    <div class="friendship-score-overall">
+      <p class="friendship-score-user"><%= @friendship.user_points %></p>
+      <p class="friendship-score-friend"><%= @friendship.friend_points %></p>
+    </div>
     <% @boards.each do |board| %>
       <%= link_to board_path(board), class: "link-board" do %>
         <p>
